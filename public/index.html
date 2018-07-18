@@ -18,16 +18,26 @@
       <div class="new-item">
         <h4>Add A New Item</h4>
         <form ng-submit="ctrl.createGroceryItem()">
-          <label for="name">Grocery Item</label>
-          <input type="text" name="name" ng-model="ctrl.name"/>
+          <div class="form-div">
+            <div class="content">
+              <label for="name">Grocery Item</label>
+              <input type="text" name="name" ng-model="ctrl.name"/>
+            </div>
 
-          <label for="quantity">Quantity</label>
-          <input type="number" name="quantity" ng-model="ctrl.quantity"/>
+            <div class="content">
+              <label for="quantity">Quantity</label>
+              <input type="number" name="quantity" ng-model="ctrl.quantity"/>
+            </div>
 
-          <label for="puchased">Purchased?</label>
-          <input type="checkbox" name="purchased" ng-model="ctrl.purchased"/>
+            <div class="content">
+              <label for="puchased">Purchased?</label>
+              <input type="checkbox" name="purchased" ng-model="ctrl.purchased"/>
+            </div>
 
-          <input type="submit" value="Add Item">
+            <div class="content" id="submit-div">
+              <input type="submit" value="Add Item">
+            </div>
+          </div>
         </form>
       </div>
 
