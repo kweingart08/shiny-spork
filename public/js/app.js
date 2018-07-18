@@ -30,6 +30,15 @@ app.controller("GroceryController", ["$http", function($http){
     });
   }; // end of get groceries function
 
+  this.deleteGroceryItem = function(grocery){
+    $http({
+      method: "DELETE",
+      url: "/groceries/" + grocery._id
+    }).then(function(response){
+      controller.getGroceries();
+    });
+  }; // end of delete function
+
   this.getGroceries();
 
 }]);

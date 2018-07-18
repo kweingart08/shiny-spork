@@ -31,6 +31,7 @@
         <table>
           <tr ng-repeat="grocery in ctrl.groceries">
             <td>{{grocery.name}}</td>
+            <td><button ng-click="ctrl.deleteGroceryItem(grocery)">Delete</button></td>
           </tr>
         </table>
       </div>
