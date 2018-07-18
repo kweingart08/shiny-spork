@@ -1,0 +1,17 @@
+label {
+  display: inline;
+}
+
+td:first-child:hover{
+  cursor: pointer;
+}
+
+td:nth-child(3):hover{
+  color: #3765f1;
+  cursor: pointer;
+}
+
+td:nth-child(4):hover{
+  color: #ff5252;
+  cursor: pointer;
+}
