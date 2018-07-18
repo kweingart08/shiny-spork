@@ -15,3 +15,7 @@ td:nth-child(5):hover{
   color: #ff5252;
   cursor: pointer;
 }
+
+.purchased {
+  text-decoration: line-through;
+}

@@ -3,6 +3,16 @@ const app = angular.module("groceriesApp", []);
 app.controller("GroceryController", ["$http", function($http){
   const controller = this;
 
+  this.togglePurchased = (grocery) => {
+    console.log(grocery);
+    let newPurchased;
+    if(grocery.purchased === true){
+      grocery.purchased = false
+    } else {
+      grocery.purchased = true
+    }
+  }
+
   this.createGroceryItem = function(){
     $http({
       method: "POST",
