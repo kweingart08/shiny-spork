@@ -38,12 +38,14 @@
               <thead>
                 <th>Item</th>
                 <th>Quantity</th>
+                <th>Purchased</th>
                 <th>Edit</th>
                 <th>Delete</th>
               </thead>
               <tr ng-repeat="grocery in ctrl.groceries">
                 <td>{{grocery.name}}</td>
                 <td>{{grocery.quantity}}</td>
+                <td>{{grocery.purchased}}</td>
                 <td ng-click="ctrl.indexOfEditFormToShow = $index"><i class="far fa-edit"></i></td>
                 <td ng-click="ctrl.deleteGroceryItem(grocery)"><i class="far fa-trash-alt"></i></td>
                 <td>
