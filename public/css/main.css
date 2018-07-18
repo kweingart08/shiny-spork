@@ -19,3 +19,7 @@ td:nth-child(5):hover{
 .purchased {
   text-decoration: line-through;
 }
+
+.container {
+  margin-top: 30px;
+}
