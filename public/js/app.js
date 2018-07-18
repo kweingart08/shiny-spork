@@ -39,6 +39,21 @@ app.controller("GroceryController", ["$http", function($http){
     });
   }; // end of delete function
 
+  this.editGroceryItem = function(grocery){
+    this.indexOfEditFormToShow = -1;
+    $http({
+      method: "PUT",
+      url: "/groceries/" + grocery._id,
+      data: {
+        name: this.updatedName,
+        quantity: this.updatedQuantity,
+        purchased: this.updatedPurchased
+      }
+    }).then(function(response){
+      controller.getGroceries();
+    });
+  };
+
   this.getGroceries();
 
 }]);
