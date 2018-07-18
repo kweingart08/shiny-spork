@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" ng-app="groceriesApp">
   <head>
     <meta charset="utf-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js" charset="utf-8"></script>
@@ -7,7 +7,29 @@
     <link rel="stylesheet" href="/css/main.css">
     <title></title>
   </head>
-  <body>
-    <h1>hi</h1>
+  <body ng-controller="GroceryController as ctrl">
+    <div class="container">
+      <div class="header">
+        <h1>Groceries!</h1>
+      </div>
+      <div class="new-item">
+        <form ng-submit="ctrl.createGroceryItem()">
+          <label for="name">Grocery Item</label>
+          <input type="text" name="name" ng-model="ctrl.name"/>
+
+          <label for="quantity">Quantity</label>
+          <input type="number" name="quantity" ng-model="ctrl.quantity"/>
+
+          <label for="puchased">Purchased?</label>
+          <input type="checkbox" name="purchased" ng-model="ctrl.purchased"/>
+
+          <input type="submit" value="Add Item">
+        </form>
+      </div>
+
+    </div>
+
+
+
   </body>
 </html>
