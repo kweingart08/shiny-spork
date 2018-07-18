@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js" charset="utf-8"></script>
     <script src="/js/app.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/skeleton.css">
     <link rel="stylesheet" href="/css/main.css">
     <title></title>
   </head>
@@ -13,6 +15,7 @@
         <h1>Groceries!</h1>
       </div>
       <div class="new-item">
+        <h4>Add A New Item</h4>
         <form ng-submit="ctrl.createGroceryItem()">
           <label for="name">Grocery Item</label>
           <input type="text" name="name" ng-model="ctrl.name"/>
@@ -29,14 +32,24 @@
 
       <div class="groceries">
         <div class="grocery-item" ng-repeat="grocery in ctrl.groceries">
-          <div class="name">
+          <div class="item-info">
+            <table>
+              <tr>
+                <td>{{grocery.name}}</td>
+                <td ng-click="ctrl.indexOfEditFormToShow = $index">Edit</td>
+                <td ng-click="ctrl.deleteGroceryItem(grocery)"> X </td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- <div class="name">
             <h3>{{grocery.name}}</h3>
           </div>
           <div class="delete">
-            <button ng-click="ctrl.deleteGroceryItem(grocery)">Delete</button>
-          </div>
+            <h5 ng-click="ctrl.deleteGroceryItem(grocery)">X</h5>
+          </div> -->
           <div class="edit">
-            <a href="#" ng-click="ctrl.indexOfEditFormToShow = $index">Edit</a>
+            <!-- <a href="#" ng-click="ctrl.indexOfEditFormToShow = $index">Edit</a> -->
             <div class="update-form-div">
               <form ng-submit="ctrl.editGroceryItem(grocery)" ng-if="$index === ctrl.indexOfEditFormToShow">
                 <input type="text" name="name" placeholder="{{grocery.name}}" ng-model="ctrl.updatedName"/>
