@@ -14,6 +14,7 @@ const port = 3000;
 // middleware
 // ------------------------------
 app.use(express.json())
+app.use(express.static("public"));
 
 // ------------------------------
 // controllers
@@ -24,9 +25,9 @@ app.use('/groceries', groceriesController)
 // ------------------------------
 // route
 // ------------------------------
-app.get("/", (req, res) => {
-  res.send("hello world")
-});
+// app.get("/", (req, res) => {
+//   res.send("hello world")
+// });
 
 // ------------------------------
 // listener
