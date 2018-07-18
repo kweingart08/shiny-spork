@@ -38,7 +38,7 @@ app.listen(port, () => {
 // ------------------------------
 // initialize mongoose
 // ------------------------------
-mongoose.connect('mongodb://localhost:27017/groceries');
+mongoose.connect('mongodb://localhost:27017/groceries', {useNewUrlParser: true});
 mongoose.connection.once('open', ()=>{
     console.log('connected to mongoose...');
 });
