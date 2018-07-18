@@ -9,6 +9,12 @@ const app = express();
 // ------------------------------
 const port = 3000;
 
+// ------------------------------
+// controllers
+// ------------------------------
+const groceriesController = require('./controllers/groceries.js')
+app.use('/groceries', groceriesController)
+
 
 // ------------------------------
 // route
