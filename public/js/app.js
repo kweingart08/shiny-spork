@@ -57,7 +57,6 @@ app.controller("GroceryController", ["$http", function($http){
       data: {
         name: this.updatedName,
         quantity: this.updatedQuantity,
-        purchased: this.updatedPurchased
       }
     }).then(function(response){
       controller.getGroceries();

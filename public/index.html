@@ -59,9 +59,8 @@
 
                       <input type="text" name="quantity" placeholder="{{grocery.quantity}}" ng-model="ctrl.updatedQuantity"/>
 
-                      <input type="checkbox" name="purchased" ng-model="ctrl.updatedPurchased"/>
-
                       <input type="submit" value="Update Item">
+                      <button ng-click="ctrl.indexOfEditFormToShow = -1">Don't Update</button>
                     </form>
                   </div>
                 </td>
