@@ -11,11 +11,15 @@ const app = express();
 const port = 3000;
 
 // ------------------------------
+// middleware
+// ------------------------------
+app.use(express.json())
+
+// ------------------------------
 // controllers
 // ------------------------------
 const groceriesController = require('./controllers/groceries.js')
 app.use('/groceries', groceriesController)
-
 
 // ------------------------------
 // route
@@ -23,7 +27,6 @@ app.use('/groceries', groceriesController)
 app.get("/", (req, res) => {
   res.send("hello world")
 });
-
 
 // ------------------------------
 // listener
@@ -35,7 +38,7 @@ app.listen(port, () => {
 // ------------------------------
 // initialize mongoose
 // ------------------------------
-mongoose.connect('mongodb://localhost:27017/meancrud');
+mongoose.connect('mongodb://localhost:27017/groceries');
 mongoose.connection.once('open', ()=>{
     console.log('connected to mongoose...');
 });
