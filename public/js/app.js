@@ -13,9 +13,23 @@ app.controller("GroceryController", ["$http", function($http){
         purchased: this.purchased
       }
     }).then(function(response){
-      console.log(response);
+      controller.getGroceries();
+    }, function(){
+      console.log("error");
     });
-  }; // end of create item 
+  }; // end of create item function
 
+  this.getGroceries = function(){
+    $http({
+      method: "GET",
+      url: "/groceries"
+    }).then(function(response){
+      controller.groceries = response.data
+    }, function(){
+      console.log("error");
+    });
+  }; // end of get groceries function
+
+  this.getGroceries();
 
 }]);
