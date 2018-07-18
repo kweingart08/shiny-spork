@@ -32,7 +32,7 @@
       </div>
 
       <div class="groceries">
-        <div class="grocery-item" ng-repeat="grocery in ctrl.groceries">
+        <div class="grocery-item">
           <div class="item-info">
             <table>
               <thead>
@@ -41,41 +41,29 @@
                 <th>Edit</th>
                 <th>Delete</th>
               </thead>
-              <tr>
+              <tr ng-repeat="grocery in ctrl.groceries">
                 <td>{{grocery.name}}</td>
                 <td>{{grocery.quantity}}</td>
                 <td ng-click="ctrl.indexOfEditFormToShow = $index"><i class="far fa-edit"></i></td>
                 <td ng-click="ctrl.deleteGroceryItem(grocery)"><i class="far fa-trash-alt"></i></td>
+                <td>
+                  <div class="update-form-div">
+                    <form ng-submit="ctrl.editGroceryItem(grocery)" ng-if="$index === ctrl.indexOfEditFormToShow">
+                      <input type="text" name="name" placeholder="{{grocery.name}}" ng-model="ctrl.updatedName"/>
+
+                      <input type="text" name="quantity" placeholder="{{grocery.quantity}}" ng-model="ctrl.updatedQuantity"/>
+
+                      <input type="checkbox" name="purchased" ng-model="ctrl.updatedPurchased"/>
+
+                      <input type="submit" value="Update Item">
+                    </form>
+                  </div>
+                </td>
               </tr>
             </table>
           </div>
-
-          <!-- <div class="name">
-            <h3>{{grocery.name}}</h3>
-          </div>
-          <div class="delete">
-            <h5 ng-click="ctrl.deleteGroceryItem(grocery)">X</h5>
-          </div> -->
-          <div class="edit">
-            <!-- <a href="#" ng-click="ctrl.indexOfEditFormToShow = $index">Edit</a> -->
-            <div class="update-form-div">
-              <form ng-submit="ctrl.editGroceryItem(grocery)" ng-if="$index === ctrl.indexOfEditFormToShow">
-                <input type="text" name="name" placeholder="{{grocery.name}}" ng-model="ctrl.updatedName"/>
-
-                <input type="text" name="quantity" placeholder="{{grocery.quantity}}" ng-model="ctrl.updatedQuantity"/>
-
-                <input type="checkbox" name="purchased" ng-model="ctrl.updatedPurchased"/>
-
-                <input type="submit" value="Update Item">
-              </form>
-            </div>
-          </div>
         </div>
       </div>
-
     </div>
-
-
-
   </body>
 </html>
